@@ -1,0 +1,103 @@
+body{
+    text-align: center;
+}
+.header{
+    color: orangered;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+}
+.header::before,.header::after{
+    content:'';
+    position: absolute;
+    display: block;
+}
+.header::before{
+    background-color:white;
+    height: 100%;
+    z-index: -1;
+    left: -20px;
+    right: -20px;
+
+}
+.header::after{
+    background-color: orangered;
+    width: 100vw;
+    height: 100%;
+    z-index: -2;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+position: relative;
+margin: 1em;
+background: rgba(0, 0, 0, 0.7);
+border-radius:5px;
+}
+.card::before,.card::after{
+content: '';
+position: absolute;
+top: 1.25em;
+bottom: 1.25em;
+left:1.25em;
+right: 1.25em;
+}
+.card::before{
+border-top: 1px solid white;
+border-bottom: 1px solid white;
+transform: scale(0,1);
+transition: transform ease-out 250ms;
+}
+
+.card::after{
+border-left: 1px solid white;
+border-right: 1px solid white;
+transform: scale(0,1);
+transition: transform ease-out 250ms;
+}
+.card:hover::before{
+transform: scale(1.05,1);
+}
+.card:hover::after{
+transform: scale(1,1.05);  
+}
+
+.card-img {
+max-width: 100%;
+display: block;
+transition: opacity ease-out 250ms;
+border-radius: 5px;
+}
+
+.card:hover .card-img {
+opacity: 0.4;
+}
+
+.card-text {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+opacity: 0;
+transition: opacity ease-out 250ms;
+font-size: 1.2rem;
+}
+
+.card:hover .card-text {
+opacity: 1;
+}
+
+.card-title {
+font-size: 2rem;
+color: white;
+margin-bottom: 0;
+}
